@@ -8,6 +8,10 @@ const client = `new MongoClient("mongodb://${process.dotenv.DB_USER}:${process.d
 export async function connectToMongoDB() {
   try {
     await client.connect();
+    //Start from here;
+    const studentCollection = client.db("universityDB").collection("students");
+
+
     console.log("You successfully connected to MongoDB!");
     return client;
   } catch (err) {
